@@ -5,14 +5,14 @@ const usernameInput = username.querySelector("input");
 const usernameValidate = () => {
   // usernameが3文字以上かつ15文字以下
   if(usernameInput.value.length >= 3 && usernameInput.value.length <= 15) {
-	username.className += " success";
+	username.className = "form-control success";
     // usernameが3文字未満
   } else if (usernameInput.value.length < 3) {
-    username.className += " error";
+    username.className = "form-control error";
     username.querySelector("small").textContent = "Username must be at least 3 characters";
     // 上記以外
   } else {
-    username.className += " error";
+    username.className = "form-control error";
     username.querySelector("small").textContent = "Username must be less than 15 characters";
   }
 }
@@ -22,9 +22,9 @@ const emailInput = email.querySelector("input");
 const emailValidate = () => {
   const emailRegexp = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
   if(emailRegexp.test(emailInput.value)) {
-    email.className += " success";
+    email.className = "form-control success";
   } else {
-    email.className += " error";
+    email.className = "form-control error";
     email.querySelector("small").textContent = "Email is not valid";
   }
 }
@@ -45,50 +45,50 @@ const passwordValidate = () => {
   const tooLongPassword = passwordInput.value.length > 25;
 
   if(acceptablePassword) {
-    password.className += " success";
+    password.className = "form-control success";
     
     if(passwordMatched) {
-      confirmPassword.className += " success";
+      confirmPassword.className = "form-control success";
     } else {
-      confirmPassword.className += " error";
+      confirmPassword.className = "form-control error";
       confirmPassword.querySelector("small").textContent = "Passwords do not match";
     }
 	}
 
   if(tooLongPassword) {
-    password.className += " error";
+    password.className = "form-control error";
     password.querySelector("small").textContent = "Password must be less than 25 characters";
 
     if(passwordMatched) {
-      confirmPassword.className += " success";
+      confirmPassword.className = "form-control success";
     } else {
-      confirmPassword.className += " error";
+      confirmPassword.className = "form-control error";
       confirmPassword.querySelector("small").textContent = "Passwords do not match";
     }
   }
 
   if(tooShortPassword) {
-  	password.className += " error";
+  	password.className = "form-control error";
   	password.querySelector("small").textContent = "Password must be at least 6 characters";
 
     if(passwordMatched) {
-      confirmPassword.className += " success";
+      confirmPassword.className = "form-control success";
     } else {
-      confirmPassword.className += " error";
+      confirmPassword.className = "form-control error";
       confirmPassword.querySelector("small").textContent = "Passwords do not match";
     }
   }
 
   // パスワードが空
   if(!passwordInput.value) {
-  	password.className += " error";
+  	password.className = "form-control error";
   	password.querySelector("small").textContent = "Password must be at least 6 characters";
     // 確認パスワードが空
     if(!confirmPasswordInput.value) {
-      confirmPassword.className += " error";
+      confirmPassword.className = "form-control error";
       confirmPassword.querySelector("small").textContent = "Password2 is required";
     } else {
-      confirmPassword.className += " error";
+      confirmPassword.className = "form-control error";
       confirmPassword.querySelector("small").textContent = "Passwords do not match";
     }
   } 
