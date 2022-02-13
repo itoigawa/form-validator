@@ -19,6 +19,15 @@ const usernameValidate = () => {
 
 const email = formList[1];
 const emailInput = email.querySelector("input");
+const emailValidate = () => {
+  const emailRegexp = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+  if(emailRegexp.test(emailInput.value)) {
+    email.className += " success";
+  } else {
+    email.className += " error";
+    email.querySelector("small").textContent = "Email is not valid";
+  }
+}
 
 const password = formList[2];
 const passwordInput = password.querySelector("input");
@@ -89,5 +98,6 @@ const passwordValidate = () => {
 form.addEventListener("submit", (ev) => {
   ev.preventDefault();
   usernameValidate();
+  emailValidate();
   passwordValidate();
 })
